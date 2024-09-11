@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html {
+    font-size: .8rem;
+    background-color: #000000;
+    font-family: 'Poppins';
+}
+
+@media only screen and (min-width : 360px) {
+    html {
+        font-size: .9rem;
+    }
+}
+
+@media only screen and (min-width : 550px) {
+    html {
+        font-size: 1rem;
+    }
+}
+
+body {
+    height: 100vh;
+}
+
+#buttonTheme {
+    width: 120px;
+    height: 60px;
+    border: none;
+    border-radius: 40px;
+    padding: 6px;
+    background-color: #27173a;
+    overflow: hidden;
+    cursor: pointer;
+    display: none;
+}
+
+@media only screen and (min-width: 610px)
+{
+    #buttonTheme {
+        display: inline-block;
+    }
+}
+
+#buttonShape {
+    display: block;
+    width: 45%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #ffc207;
+    float: right;
+}
+
+#buttonShape::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #27173a;
+    transform: translate(-40%, 0) scale(1);
+}
+
+.active::before{
+    transform: scale(0) !important;
+}
+
+.containerCalc {
+    background-color: #19171A;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 375px;
+    box-shadow: 0 0 2.5rem #006BB5;
+}
+
+@media only screen and (min-width : 375px) {
+    .containerCalc {
+        border-radius: 1rem;
+    }
+}
+
+.calculator {
+    position: relative;
+    height: 600px;
+}
+
+@media only screen and (min-width : 360px) {
+    .calculator {
+        padding: 2rem;
+        height: 600px;
+    }
+}
+
+h1 {
+    background: linear-gradient(-80deg, #006BB5, #00b515);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: none;
+}
+
+@media only screen and (min-width : 360px) {
+    h1 {
+        display: block;
+    }
+}
+
+h1::before {
+    content: 'Mahan Calculator';
+    background: linear-gradient(-80deg, #00b515, #006BB5);
+    position: absolute;
+    white-space: nowrap;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 7s linear infinite;
+}
+
+@keyframes glow {
+    0% {
+        width: 0;
+    }
+    10% {
+        width: 10%;
+    }
+    20% {
+        width: 20%;
+    }
+    30% {
+        width: 30%;
+    }
+    40% {
+        width: 40%;
+    }
+    50% {
+        width: 50%;
+    }
+    60% {
+        width: 60%;
+    }
+    70% {
+        width: 70%;
+    }
+    80% {
+        width: 80%;
+    }
+    90% {
+        width: 90%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+#result {
+    font-family: inherit;
+    background-color: #19171A;
+    width: 100%;
+    font-size: 3.8rem;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 27%;
+}
+
+@media only screen and (min-width : 360px) {
+    #result {
+        width: calc(100% - 4rem);
+        top: 17%;
+        font-size: 2.5rem;
+    }
+}
+
+.btnCalc {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, calc(25% - 1rem));
+    grid-template-rows: repeat(5, 4rem);
+    gap: 1rem 1.25rem;
+    position: absolute;
+    bottom: .25rem;
+}
+
+@media only screen and (min-width : 360px)
+{
+    .btnCalc {
+        width: calc(100% - 4rem);
+        bottom: 2rem;
+    }
+}
+
+.btn {
+    border: none;
+    border-radius: 1rem;
+    background-color: #303136;
+    font-size: 1.25rem;
+    font-family: inherit;
+    color: #29A8FF;
+    cursor: pointer;
+    transition: transform .1s linear;
+}
+
+.btn:hover {
+    transform: scale(.9);
+}
+
+.btnPrimary {
+    background-color: #005DB2;
+}
+
+.btnSecondary {
+    background-color: #616161;
+    color: #A5A5A5;
+}
+
+#btnEqual {
+    grid-row: 4 / 6;
+    grid-column: 4;
+    cursor: help;
+}
+
+#numberZero {
+    grid-column: 1 / 3;
+}
